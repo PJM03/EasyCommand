@@ -18,6 +18,7 @@ public class EasyCommandBuilder {
      * builder를 생성
      *
      * @param command 명령어 이름
+     * @return EasyCommandBuilder instance
      * */
     public static EasyCommandBuilder create(String command) {
         return new EasyCommandBuilder(command);
