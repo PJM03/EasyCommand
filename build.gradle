@@ -24,6 +24,10 @@ java {
     withJavadocJar()
 }
 
+javadoc {
+    destinationDir = file("$projectDir/docs")
+}
+
 test {
     useJUnitPlatform()
 }
