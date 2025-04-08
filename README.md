@@ -1,8 +1,51 @@
 # EasyCommand
+[![](https://jitpack.io/v/PJM03/EasyCommand.svg)](https://jitpack.io/#PJM03/EasyCommand)
+
 
 `EasyCommand`는 자바로 간단하게 명령어 시스템을 관리할 수 있는 명령어 프레임워크입니다.
 
 ---
+
+## 사용법
+### Maven
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.pjm03</groupId>
+        <artifactId>EasyCommand</artifactId>
+        <version>v1.0.1</version>
+    </dependency>
+</dependencies>
+```
+---
+### Gradle(groovy)
+```groovy
+repositories {
+    maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+    implementation 'com.github.pjm03:easycommand:v1.0.1'
+}
+```
+---
+### Gradle(kotlin)
+```kotlin
+repositories {
+    maven { url = uri("https://jitpack.io") }
+}
+
+dependencies {
+    implementation("com.github.pjm03:easycommand:v1.0.1")
+}
+```
 
 ## ✨ Features
 
