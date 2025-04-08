@@ -119,7 +119,7 @@ public class EasyCommandBuilder {
         AbstractCommand abstractCommand = new AbstractCommand(this.command, this.aliases, this.description, subCommands, subCommandAliases) {
             @Override
             public void execute(String[] args) {
-                EasyCommandBuilder.this.consumer.accept(args);
+                if(EasyCommandBuilder.this.consumer != null) EasyCommandBuilder.this.consumer.accept(args);
             }
         };
 
