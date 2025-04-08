@@ -16,7 +16,7 @@ import java.util.Set;
 @Getter
 @RequiredArgsConstructor
 @ToString
-public abstract class AbstractCommand implements ICommand {
+public abstract class AbstractCommand implements Command {
     /**
      * 이름
      * */

@@ -1,6 +1,6 @@
 import com.github.pjm03.easycommand.AbstractCommand;
 import com.github.pjm03.easycommand.EasyCommand;
-import com.github.pjm03.easycommand.builder.EasyCommandBuilder;
+import com.github.pjm03.easycommand.EasyCommandBuilder;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 

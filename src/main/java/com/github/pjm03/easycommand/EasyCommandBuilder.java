@@ -1,7 +1,5 @@
-package com.github.pjm03.easycommand.builder;
+package com.github.pjm03.easycommand;
 
-import com.github.pjm03.easycommand.AbstractCommand;
-import com.github.pjm03.easycommand.EasyCommand;
 import lombok.Getter;
 
 import java.util.*;
