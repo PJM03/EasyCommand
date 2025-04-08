@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.github.pjm03.easycommand","l":"AbstractCommand"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.github.pjm03.easycommand","l":"Command"},{"p":"com.github.pjm03.easycommand","l":"EasyCommand"},{"p":"com.github.pjm03.easycommand","l":"EasyCommandBuilder"}];updateSearchResults();
