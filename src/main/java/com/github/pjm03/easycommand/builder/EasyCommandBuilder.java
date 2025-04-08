@@ -41,6 +41,7 @@ public class EasyCommandBuilder {
      * 하위 명령어
      * */
     private final Map<String, AbstractCommand> subCommands = new HashMap<>();
+    private final Map<String, AbstractCommand> subCommandAliases = new HashMap<>();
     /**
      * 실행 시 작동하는 consumer
      * */
@@ -86,12 +87,12 @@ public class EasyCommandBuilder {
     public EasyCommandBuilder addSubCommand(AbstractCommand subCommand) {
         if (this.subCommands.containsKey(subCommand.getCommand())) throw new IllegalArgumentException("Sub command \"%s\" is already registered".formatted(subCommand.getCommand()));
         for (String alias : subCommand.getAliases()) {
-            if (this.subCommands.containsKey(alias)) throw new IllegalArgumentException("Sub command alias \"%s\" is already registered".formatted(alias));
+            if (this.subCommandAliases.containsKey(alias)) throw new IllegalArgumentException("Sub command alias \"%s\" is already registered".formatted(alias));
         }
 
         this.subCommands.put(subCommand.getCommand(), subCommand);
         for (String alias : subCommand.getAliases()) {
-            this.subCommands.put(alias, subCommand);
+            this.subCommandAliases.put(alias, subCommand);
         }
 
         return this;
@@ -117,7 +118,7 @@ public class EasyCommandBuilder {
      * @see com.github.pjm03.easycommand.AbstractCommand
      * */
     public AbstractCommand build(boolean register) {
-        AbstractCommand abstractCommand = new AbstractCommand(this.command, this.aliases, this.description, subCommands) {
+        AbstractCommand abstractCommand = new AbstractCommand(this.command, this.aliases, this.description, subCommands, subCommandAliases) {
             @Override
             public void execute(String[] args) {
                 EasyCommandBuilder.this.consumer.accept(args);

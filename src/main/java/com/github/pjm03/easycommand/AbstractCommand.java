@@ -34,4 +34,17 @@ public abstract class AbstractCommand implements ICommand {
      * 하위 명령어
      * */
     private final Map<String, AbstractCommand> subCommands;
+    /**
+     * 하위 명령어 aliases map
+     * */
+    private final Map<String, AbstractCommand> subCommandAliases;
+    /**
+     * 인자값에 해당하는 하위 명령어를 가져오는 메서드
+     *
+     * @param subCommand 하위 명령어 이름/별명
+     * @return subCommand에 해당하는 하위 명령어. 없다면 null
+     * */
+    public AbstractCommand getSubCommand(String subCommand) {
+        return subCommands.getOrDefault(subCommand, subCommandAliases.get(subCommand));
+    }
 }

@@ -17,6 +17,7 @@ public class EasyCommand {
      * 모든 명령어 객체들이 등록되어 있는 Map
      * */
     private static final Map<String, AbstractCommand> COMMAND_MAP = new HashMap<>();
+    private static final Map<String, AbstractCommand> COMMAND_ALIAS_MAP = new HashMap<>();
 
     /**
      * 문자열 명령어 분석 및 실행
@@ -39,13 +40,16 @@ public class EasyCommand {
      * @throws IllegalArgumentException command 값에 해당하는 명령어를 찾을 수 없음.
      * */
     public static void executeCommand(@NonNull String command, @NonNull String[] args) {
-        AbstractCommand abstractCommand = COMMAND_MAP.get(command);
+        AbstractCommand abstractCommand = COMMAND_MAP.getOrDefault(command, COMMAND_ALIAS_MAP.get(command));
         if (abstractCommand == null) throw new IllegalArgumentException("Command \"%s\" is not found.".formatted(command));
 
-        while (args.length > 0 && !abstractCommand.getSubCommands().isEmpty()) {
+        while (args.length > 0) {
             String arg = args[0];
+            AbstractCommand subCommand = abstractCommand.getSubCommand(arg);
+            if (subCommand == null) break;
+
             args = Arrays.copyOfRange(args, 1, args.length);
-            abstractCommand = abstractCommand.getSubCommands().get(arg);
+            abstractCommand = subCommand;
         }
 
         abstractCommand.execute(args);
